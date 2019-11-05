@@ -56,6 +56,13 @@ public class OssDownloadServlet extends HttpServlet {
 
 	private static void _setHeaders(ObjectMetadata metadata, String objectName, HttpServletResponse resp)
 			throws UnsupportedEncodingException {
+		// 设置跨域响应头
+		resp.setHeader("Access-Control-Allow-Origin", "*");
+		resp.setHeader("Access-Control-Allow-Methods", "POST, GET, PUT, OPTIONS, DELETE");
+		resp.setHeader("Access-Control-Max-Age", "3600");
+		resp.setHeader("Access-Control-Allow-Headers", "x-requested-with, Content-Type");
+		resp.setHeader("Access-Control-Allow-Credentials", "true");
+		// 设置文件下载相关的响应头
 		resp.setContentType(metadata.getContentType());
 		String contentDisposition = "attachment;filename*=UTF-8''" + URLEncoder.encode(objectName, "UTF-8");
 		resp.setHeader("Content-Disposition", contentDisposition);
