@@ -23,8 +23,7 @@ public class Activator implements BundleActivator {
 		log.info("module-micro-api-aliyun-oss starting ...");
 
 		this.context = context;
-		Config.load(context);
-		Config config = Config.get();
+		Config config = Config.load(context);
 		httpServer = new HttpServer(config);
 		httpServer.start();
 

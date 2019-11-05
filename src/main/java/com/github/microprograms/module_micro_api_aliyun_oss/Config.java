@@ -15,8 +15,6 @@ public class Config {
 	private static final String property_key_bucket = "module_micro_api_aliyun_oss.bucket";
 	private static final String property_key_dir = "module_micro_api_aliyun_oss.dir";
 
-	private static Config config;
-
 	private String port;
 	private String accessId;
 	private String accessKey;
@@ -24,10 +22,6 @@ public class Config {
 	private String bucket;
 	private String dir;
 	private String callbackUrl;
-
-	public static Config get() {
-		return config;
-	}
 
 	public synchronized static Config load(BundleContext context) {
 		Config config = new Config();

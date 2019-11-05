@@ -28,12 +28,18 @@ public class CreatePresignedUrl implements Api {
     public String execute(String request) throws Exception {
         Req req = JSON.parseObject(request, Req.class);
         Resp resp = new Resp();
-        OSS ossClient = new OSSClientBuilder().build(config.getEndpoint(), config.getAccessId(), config.getAccessKey());
-        Date expiration = new Date(new Date().getTime() + 3600 * 1000);
-        URL url = ossClient.generatePresignedUrl(config.getBucket(), req.getObjectName(), expiration);
-        ossClient.shutdown();
-        resp.setPresignedUrl(url.toString());
-        return JSON.toJSONString(resp);
+        OSS ossClient = null;
+        try {
+            ossClient = new OSSClientBuilder().build(config.getEndpoint(), config.getAccessId(), config.getAccessKey());
+            Date expiration = new Date(new Date().getTime() + 3600 * 1000);
+            URL url = ossClient.generatePresignedUrl(config.getBucket(), req.getObjectName(), expiration);
+            resp.setPresignedUrl(url.toString());
+            return JSON.toJSONString(resp);
+        } finally {
+            if (null != ossClient) {
+                ossClient.shutdown();
+            }
+        }
     }
 
     public static class Req extends Request {

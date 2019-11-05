@@ -6,7 +6,7 @@
 
 	<groupId>com.github.microprograms</groupId>
 	<artifactId>module-micro-api-aliyun-oss</artifactId>
-	<version>2.0.0</version>
+	<version>2.0.0.r1</version>
 	<packaging>bundle</packaging>
 
 	<name>module-micro-api-aliyun-oss</name>

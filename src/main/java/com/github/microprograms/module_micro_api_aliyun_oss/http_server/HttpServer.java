@@ -26,7 +26,8 @@ public class HttpServer {
 		server = new Server(Integer.valueOf(config.getPort()));
 		ServletContextHandler webApiContext = new ServletContextHandler();
 		webApiContext.setContextPath("/");
-		webApiContext.addServlet(new ServletHolder(new OssServlet(config)), "/*");
+		webApiContext.addServlet(new ServletHolder(new OssServlet(config)), "/api/*");
+		webApiContext.addServlet(new ServletHolder(new OssDownloadServlet(config)), "/download/*");
 		webApiContext.setSessionHandler(new SessionHandler());
 
 		HandlerList handlers = new HandlerList();
