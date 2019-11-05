@@ -6,7 +6,7 @@
 
 	<groupId>com.github.microprograms</groupId>
 	<artifactId>module-micro-api-aliyun-oss</artifactId>
-	<version>1.0.0</version>
+	<version>2.0.0</version>
 	<packaging>bundle</packaging>
 
 	<name>module-micro-api-aliyun-oss</name>
@@ -20,6 +20,19 @@
 
 	<build>
 		<plugins>
+			<plugin>
+				<groupId>com.github.microprograms</groupId>
+				<artifactId>maven-micro-api-sdk-plugin</artifactId>
+				<version>8.2.0</version>
+				<executions>
+					<execution>
+						<phase>compile</phase>
+						<goals>
+							<goal>update-all-apis</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-dependency-plugin</artifactId>
@@ -201,6 +214,11 @@
 			<artifactId>json-lib</artifactId>
 			<version>2.4</version>
 			<classifier>jdk15</classifier>
+		</dependency>
+		<dependency>
+			<groupId>com.github.microprograms</groupId>
+			<artifactId>micro-api-runtime</artifactId>
+			<version>8.2.0</version>
 		</dependency>
 	</dependencies>
 </project>

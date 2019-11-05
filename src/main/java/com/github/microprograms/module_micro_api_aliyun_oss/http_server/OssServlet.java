@@ -30,6 +30,7 @@ import com.aliyun.oss.OSSClient;
 import com.aliyun.oss.common.utils.BinaryUtil;
 import com.aliyun.oss.model.MatchMode;
 import com.aliyun.oss.model.PolicyConditions;
+import com.github.microprograms.module_micro_api_aliyun_oss.Config;
 
 import net.sf.json.JSONObject;
 
@@ -37,63 +38,6 @@ import net.sf.json.JSONObject;
 public class OssServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private static final Logger log = LoggerFactory.getLogger(OssServlet.class);
-
-	public static class Config {
-		private String accessId;
-		private String accessKey;
-		private String endpoint;
-		private String bucket;
-		private String dir;
-		private String callbackUrl;
-
-		public String getAccessId() {
-			return accessId;
-		}
-
-		public void setAccessId(String accessId) {
-			this.accessId = accessId;
-		}
-
-		public String getAccessKey() {
-			return accessKey;
-		}
-
-		public void setAccessKey(String accessKey) {
-			this.accessKey = accessKey;
-		}
-
-		public String getEndpoint() {
-			return endpoint;
-		}
-
-		public void setEndpoint(String endpoint) {
-			this.endpoint = endpoint;
-		}
-
-		public String getBucket() {
-			return bucket;
-		}
-
-		public void setBucket(String bucket) {
-			this.bucket = bucket;
-		}
-
-		public String getDir() {
-			return dir;
-		}
-
-		public void setDir(String dir) {
-			this.dir = dir;
-		}
-
-		public String getCallbackUrl() {
-			return callbackUrl;
-		}
-
-		public void setCallbackUrl(String callbackUrl) {
-			this.callbackUrl = callbackUrl;
-		}
-	}
 
 	private Config config;
 
